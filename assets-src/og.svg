@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#818cf8"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="70%" cy="35%" r="60%">
+      <stop offset="0" stop-color="#38bdf8" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#060a13" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#060a13"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <g stroke="#38bdf8" stroke-opacity="0.18">
+    <line x1="820" y1="120" x2="960" y2="200"/><line x1="960" y1="200" x2="880" y2="330"/>
+    <line x1="820" y1="120" x2="700" y2="240"/><line x1="700" y1="240" x2="880" y2="330"/>
+    <line x1="960" y1="200" x2="1100" y2="280"/><line x1="880" y1="330" x2="1020" y2="430"/>
+    <line x1="700" y1="240" x2="760" y2="400"/><line x1="760" y1="400" x2="1020" y2="430"/>
+  </g>
+  <g fill="url(#grad)">
+    <circle cx="820" cy="120" r="7"/><circle cx="960" cy="200" r="9"/><circle cx="880" cy="330" r="11"/>
+    <circle cx="700" cy="240" r="7"/><circle cx="1100" cy="280" r="6"/><circle cx="1020" cy="430" r="8"/>
+    <circle cx="760" cy="400" r="6"/>
+  </g>
+  <text x="80" y="270" font-family="Helvetica, Arial, sans-serif" font-size="58" font-weight="700" fill="#e2e8f0">Madhukeshwargouda Patil</text>
+  <text x="80" y="330" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="500" fill="url(#grad)">Technical Lead &#183; Cloud &amp; Platform &#183; DevOps &#183; SRE</text>
+  <text x="80" y="392" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#94a3b8">0 &#8594; 9M users in 90 days &#183; Berlin, DE &#183; Open to work</text>
+  <rect x="80" y="440" width="360" height="2" fill="url(#grad)"/>
+  <text x="80" y="490" font-family="Courier, monospace" font-size="22" fill="#5eead4">madhukeshwarpatil.github.io</text>
+</svg>
