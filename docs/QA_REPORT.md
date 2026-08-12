@@ -59,3 +59,20 @@ Captured at desktop 1440×1100, mobile 390×844, narrow 320×700, and reduced-mo
 - Repeat QA captures with: `npm i --no-save puppeteer-core && npm run preview & node scripts/qa-capture.mjs` (screenshots land in `qa-shots/`, gitignored).
 
 **Verdict: release-ready.** Build green, types green, zero console errors, accessibility paths verified.
+
+---
+
+## Addendum — DNA-of-code helix (Aug 13, 2026)
+
+Replaced the hero-only Control Plane node-network with a fixed, full-viewport **DNA double helix of code glyphs + stack keywords** behind all sections.
+
+| Check | Result |
+|---|---|
+| `npm run typecheck` | **PASS** |
+| `npm run build` | **PASS** — lazy chunks: `CodeHelixScene` (~162 kB / 52 gz), `three` (~724 kB / 184 gz) |
+| WebGL path | `.bg3d` + `<canvas>` mount; `.bg3d-fallback` absent |
+| Reduced-motion / no-WebGL | canvas absent; `.bg3d-fallback` SVG DNA present |
+| Scroll dimming | `.bg3d-dim` applied after ~0.7× viewport scroll (scene ~38% + stronger veil); content remains readable |
+| Tab hidden | `frameloop: never` when `document.hidden` |
+
+Visual spot-checks (`qa-shots/helix-hero.png`, `helix-midscroll.png`, `helix-reduced.png`): helix readable in hero, dimmed behind Experience, static SVG fallback on reduced motion. No commit/push in this pass.

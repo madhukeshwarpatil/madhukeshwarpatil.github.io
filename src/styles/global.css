@@ -231,6 +231,54 @@ button {
   min-height: 40px;
 }
 
+/* ---------- Fixed 3D background (code helix) ---------- */
+
+.bg3d {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.bg3d-scene {
+  position: absolute;
+  inset: 0;
+  opacity: 1;
+  transition: opacity 0.8s var(--ease);
+}
+
+/* Past the hero, pull the scene back so section content always wins. */
+.bg3d-dim .bg3d-scene {
+  opacity: 0.38;
+}
+
+/* Constant soft vignette keeping the text column readable. */
+.bg3d-veil {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(120% 100% at 28% 45%, rgba(6, 10, 19, 0.5), rgba(6, 10, 19, 0.12) 55%, rgba(6, 10, 19, 0.38));
+  transition: background 0.8s var(--ease);
+}
+
+.bg3d-dim .bg3d-veil {
+  background:
+    radial-gradient(115% 95% at 30% 40%, rgba(6, 10, 19, 0.72), rgba(6, 10, 19, 0.45) 55%, rgba(6, 10, 19, 0.62));
+}
+
+.bg3d-fallback {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.bg3d-fallback svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
 /* ---------- Hero ---------- */
 
 .hero {
@@ -241,12 +289,6 @@ button {
   overflow: hidden;
 }
 
-.hero-canvas {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-
 .hero-glow {
   position: absolute;
   inset: 0;
@@ -254,17 +296,6 @@ button {
   background:
     radial-gradient(ellipse 70% 55% at 65% 40%, rgba(56, 189, 248, 0.09), transparent 65%),
     radial-gradient(ellipse 50% 45% at 30% 70%, rgba(129, 140, 248, 0.08), transparent 65%);
-  pointer-events: none;
-}
-
-.hero-fade {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 20vh;
-  z-index: 1;
-  background: linear-gradient(to bottom, transparent, var(--bg));
   pointer-events: none;
 }
 
@@ -377,21 +408,6 @@ button {
   50% {
     transform: translateY(6px);
   }
-}
-
-/* Static hero fallback art */
-.hero-fallback {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  overflow: hidden;
-}
-
-.hero-fallback svg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
 }
 
 /* ---------- Sections ---------- */

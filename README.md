@@ -1,13 +1,13 @@
 # Madhukeshwargouda Patil — 3D Portfolio
 
-Personal portfolio for **Madhukeshwargouda Patil** — Technical Lead · Cloud & Platform Engineering · DevOps · SRE. A single-page, dark-themed 3D experience built around a cloud-infrastructure node-network hero scene.
+Personal portfolio for **Madhukeshwargouda Patil** — Technical Lead · Cloud & Platform Engineering · DevOps · SRE. A single-page, dark-themed 3D experience built around a **DNA-of-code** double helix (glyphs + stack keywords) as a fixed full-page background.
 
 Live target: **https://madhukeshwarpatil.github.io/**
 
 ## Stack
 
 - [Vite](https://vitejs.dev/) + [React 19](https://react.dev/) + TypeScript (strict)
-- [Three.js](https://threejs.org/) via [@react-three/fiber](https://docs.pmnd.rs/react-three-fiber) (+ drei available) — lazy-loaded 3D hero
+- [Three.js](https://threejs.org/) via [@react-three/fiber](https://docs.pmnd.rs/react-three-fiber) + [drei](https://github.com/pmndrs/drei) — lazy-loaded DNA helix backdrop
 - [Framer Motion](https://www.framer.com/motion/) — scroll reveals, stat counters, micro-interactions
 
 ## Structure
@@ -18,7 +18,7 @@ public/                   favicon.svg, og.png
 resume.html               Standalone print-optimized resume (print → Save as PDF)
 src/
   data/profile.ts         All portfolio content, typed (single source of truth)
-  components/             Nav, Hero (+ 3D scene & static fallback), sections
+  components/             Nav, Hero, Background3D (CodeHelixScene + HelixFallback), sections
   hooks/, lib/            Reduced-motion hook, WebGL detection
   styles/global.css       Design system (tokens, layout, components)
 .github/workflows/        GitHub Pages deploy workflow
@@ -48,9 +48,9 @@ The site deploys to the **user root** (`madhukeshwarpatil.github.io`), so Vite `
 
 ## Graceful degradation
 
-- `prefers-reduced-motion: reduce` → 3D canvas is never mounted; a static SVG hero renders instead; scroll animations and counters render in final state.
+- `prefers-reduced-motion: reduce` → 3D canvas is never mounted; a static SVG DNA-of-code backdrop renders instead; scroll animations and counters render in final state.
 - No WebGL → same static fallback.
-- Small screens / low-core devices → reduced particle counts and capped device pixel ratio.
+- Small screens / low-core devices → reduced helix density and capped device pixel ratio.
 - The three.js bundle is a separate lazy chunk loaded after first paint, so content is never blocked by 3D.
 
 ## Content updates

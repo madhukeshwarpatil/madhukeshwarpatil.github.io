@@ -19,7 +19,7 @@ Sticky top nav (blurred glass) with anchor links: About · Experience · Skills 
 
 ### 1.2 Section-by-section design
 
-**Hero (100svh).** 3D node-network scene fills the background. Foreground: status chip ("Open to work · Berlin, DE"), name in display type, title line, one-sentence hook ("0 → 9M users in 90 days"), two CTAs (primary "Get in touch", secondary "Resume"), scroll hint. Contact facts are thus visible in the first viewport — the recruiter's 30-second budget is served immediately.
+**Hero (100svh).** Foreground only: status chip ("Open to work · Berlin, DE"), name in display type, title line, one-sentence hook ("0 → 9M users in 90 days"), two CTAs (primary "Get in touch", secondary "Resume"), scroll hint. The DNA-of-code helix is a fixed full-viewport background behind the entire page (not hero-only). Contact facts are thus visible in the first viewport — the recruiter's 30-second budget is served immediately.
 
 **About.** Two-column on desktop: summary paragraph (left, ~60ch) + "facts card" (right: location, availability, visa note, email, phone, LinkedIn). Single column stacked on mobile, facts card first.
 
@@ -37,13 +37,13 @@ Sticky top nav (blurred glass) with anchor links: About · Experience · Skills 
 
 - **Scroll reveals:** sections fade-up 24px with slight stagger on children (Framer Motion `whileInView`, `once: true` so scrolling back up doesn't re-trigger).
 - **Stat counters:** count up over ~1.4s with ease-out when scrolled into view; suffixes (M+, K+, days) rendered statically to avoid layout shift.
-- **3D hero:** slow autonomous rotation; pointer moves the camera a few degrees (lerped, never snappy). Scene pauses via frameloop when tab hidden and is demand-invalidated to conserve battery where possible.
+- **3D DNA helix (full-page background):** continuous autonomous rotation; scroll progress drives vertical travel + extra twist so the helix feels continuous down the page; pointer parallax is lerped and subtle. Scene pauses via `frameloop: never` when the tab is hidden.
 - **Micro-interactions:** buttons scale 0.98 on press, chips lift 2px on hover, nav links get an underline slide; timeline nodes pulse subtly.
 - **Timing language:** 300–600ms, `cubic-bezier(0.22, 1, 0.36, 1)` (ease-out-quint feel). Nothing bounces.
 
 ### 1.4 Accessibility
 
-- **Reduced motion:** `prefers-reduced-motion: reduce` disables the 3D canvas (static hero art instead), disables scroll/parallax animations (content renders in final state), counters show final values immediately.
+- **Reduced motion:** `prefers-reduced-motion: reduce` disables the 3D canvas (static SVG DNA-of-code art instead), disables scroll/parallax animations (content renders in final state), counters show final values immediately.
 - **Keyboard:** all interactive elements are native `<a>`/`<button>`; logical DOM order; skip-to-content link as first focusable element; visible `:focus-visible` ring (2px accent outline, 2px offset) everywhere.
 - **Contrast:** body text `#e2e8f0` on `#060a13` ≈ 15:1; muted text `#94a3b8` on `#060a13` ≈ 7.5:1; accent used for decorative/large elements, never for body copy below AA thresholds.
 - **Semantics:** one `<h1>` (name), sections labelled via `aria-labelledby` on their headings, `<nav>`, `<main>`, `<footer>` landmarks, canvas `aria-hidden` with textual content never inside it.
@@ -51,15 +51,15 @@ Sticky top nav (blurred glass) with anchor links: About · Experience · Skills 
 
 ### 1.5 Responsive strategy
 
-Mobile-first CSS. Breakpoints: 640px (facts card joins two-col grids), 900px (two-column About, 2×2 Skills, timeline gains left spine offset), 1200px (max content width 1120px, centered). The 3D scene renders on mobile but with capped DPR (≤1.5) and reduced particle count via a `coarse pointer + small viewport` heuristic; type scales with `clamp()`.
+Mobile-first CSS. Breakpoints: 640px (facts card joins two-col grids), 900px (two-column About, 2×2 Skills, timeline gains left spine offset), 1200px (max content width 1120px, centered). The 3D scene renders on mobile but with capped DPR (≤1.5) and reduced helix density via a `coarse pointer + small viewport` / low-core heuristic; type scales with `clamp()`. On small screens the helix is centered; on desktop it sits slightly right so hero copy keeps the left column clear.
 
 ---
 
 ## Part 2 — Visual Language (Frontend + Graphic Design)
 
-### 2.1 Concept: "The Control Plane"
+### 2.1 Concept: "DNA of Code"
 
-The aesthetic is drawn from Madhu's actual work: distributed systems, observability dashboards, and infrastructure-as-code. The 3D hero is a **living node network** — glowing points connected by faint lines with data-flow particles drifting between them — evoking a cloud topology map at night. Restrained and ambient, not gimmicky: it is the room the content sits in, not a fireworks show.
+The aesthetic is drawn from Madhu's actual work: infrastructure-as-code, platform engineering, and the craft of composing systems from primitives. The site backdrop is a **DNA double helix made of code** — two strands of glyphs (`{ } < / > ; …`) bridged by binary base-pair rungs, with stack keywords (aws, terraform, docker, kafka, sre, …) orbiting as ambient labels. It is fixed, full-viewport, and continuous behind every section: restrained and atmospheric, never competing with content.
 
 ### 2.2 Color system
 
@@ -96,8 +96,8 @@ Scale (clamp-based): display `clamp(2.5rem, 7vw, 4.5rem)`; section title `clamp(
 
 ### 2.5 3D art direction
 
-- **Geometry:** ~180 nodes distributed on a fibonacci sphere (slightly ellipsoid), connected to near neighbors with line segments; a second, sparser outer shell for depth.
-- **Materials:** additive-blended points (cyan→indigo by depth), lines at ~12% opacity; ~60 brighter "packet" particles that travel along random edges — the data-flow read.
-- **Motion:** whole network rotates ~0.03 rad/s; camera eases toward pointer offset (max ±4°); gentle breathing scale (±1.5%, 8s period).
-- **Rendering budget:** no shadows, no postprocessing passes, DPR capped at 2 (1.5 on mobile), single draw call each for nodes/lines/packets via buffer geometry. Target: 60fps on integrated graphics.
-- **Fallback art:** a pre-styled CSS/SVG composition (radial glow + static SVG network lines) that shares the palette, so reduced-motion/no-WebGL users still get a designed hero, not an empty div.
+- **Geometry:** double helix of height ~44 world units; two glyph strands wind around Y with twist ≈ 2π / 7.5 per unit height; faint line-segment rungs + small `0`/`1` glyph dots as base pairs; keyword billboards distributed along the length.
+- **Materials:** custom shader points sampling a 5×5 glyph atlas (additive cyan→indigo→teal), rung lines ~9% opacity, keywords as transparent additive billboards via drei `Billboard`.
+- **Motion:** continuous Y-rotation (~0.12 rad/s) + scroll-normalized vertical travel and extra twist (damped); camera eases toward pointer offset (subtle parallax). Past ~0.7× viewport scroll the scene dims (~38% opacity) under a stronger vignette veil so section copy always wins.
+- **Rendering budget:** no shadows, no postprocessing; DPR capped at 2 (1.5 on constrained devices); denser vs sparser step sizes via `isConstrainedDevice()`; `frameloop: never` when the tab is hidden. Three.js + R3F + drei are lazy-loaded after first paint.
+- **Fallback art:** static SVG DNA-of-code composition (sinusoidal glyph strands + rungs + keywords) for `prefers-reduced-motion` and no-WebGL — same palette, designed hero, not an empty div.

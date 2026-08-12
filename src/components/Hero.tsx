@@ -1,30 +1,12 @@
-import { Suspense, lazy, useEffect, useRef, useState } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { identity } from '../data/profile'
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
-import { isWebGLAvailable } from '../lib/webgl'
-import { HeroFallback } from './HeroFallback'
 import { ArrowDownIcon, DownloadIcon, MailIcon } from './icons'
-
-const HeroScene = lazy(() => import('./HeroScene'))
 
 const ease = [0.22, 1, 0.36, 1] as const
 
 export function Hero() {
   const reduced = usePrefersReducedMotion()
-  const heroRef = useRef<HTMLElement>(null)
-  const heroVisible = useInView(heroRef, { amount: 0.05 })
-  const [sceneReady, setSceneReady] = useState(false)
-
-  // Defer mounting the 3D chunk until after first paint so content wins the race.
-  useEffect(() => {
-    if (reduced) return
-    if (!isWebGLAvailable()) return
-    const id = window.requestAnimationFrame(() => setSceneReady(true))
-    return () => window.cancelAnimationFrame(id)
-  }, [reduced])
-
-  const show3D = sceneReady && !reduced
 
   const intro = (delay: number) =>
     reduced
@@ -36,16 +18,8 @@ export function Hero() {
         }
 
   return (
-    <header className="hero" ref={heroRef}>
-      {show3D ? (
-        <Suspense fallback={<HeroFallback />}>
-          <HeroScene active={heroVisible} />
-        </Suspense>
-      ) : (
-        <HeroFallback />
-      )}
+    <header className="hero">
       <div className="hero-glow" />
-      <div className="hero-fade" />
 
       <div className="hero-content">
         <motion.p className="status-chip" {...intro(0)}>

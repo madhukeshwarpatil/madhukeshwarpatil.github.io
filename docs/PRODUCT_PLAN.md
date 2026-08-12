@@ -35,7 +35,7 @@ Implication: the 3D experience must never gate the content. Every critical fact 
 
 **In scope (v1):**
 - Single-page scroll experience: Hero (3D) → About → Experience timeline with animated stat counters → Skills → Education → Languages → Contact
-- 3D hero: cloud-infrastructure-themed scene (node network, flowing data particles) with static fallback
+- 3D backdrop: DNA-of-code double helix (glyphs + stack keywords), fixed full-viewport, scroll-linked travel; static SVG fallback
 - Sticky minimal nav with section anchors + always-visible contact CTA
 - Resume: dedicated print-optimized `/resume.html` page (print-to-PDF) + download button
 - Dark premium theme, scroll-reveal motion, micro-interactions
@@ -68,7 +68,7 @@ M0 → M1 → M2 happen doc-first (done before code). M3 blocks M4–M6. M4 and 
 
 | Risk | Mitigation |
 |---|---|
-| 3D hurts load/perf on recruiter laptops | Lazy-load three.js chunk after first paint; cap device pixel ratio; low poly counts; pause rendering when hero off-screen |
+| 3D hurts load/perf on recruiter laptops | Lazy-load three.js chunk after first paint; cap device pixel ratio; reduce helix density on constrained devices; pause rendering when tab hidden |
 | 3D unavailable (old GPU, disabled WebGL) | Feature-detect WebGL before mounting canvas; ship a designed static hero fallback, not an error |
 | Motion sickness / vestibular issues | Respect `prefers-reduced-motion` globally: no parallax, counters render final values, 3D replaced by static art |
 | GitHub Pages routing | Single page + separate physical `resume.html` — no SPA router needed, nothing to 404 |

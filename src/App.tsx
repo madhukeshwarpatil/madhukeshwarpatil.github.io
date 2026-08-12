@@ -1,4 +1,5 @@
 import { About } from './components/About'
+import { Background3D } from './components/Background3D'
 import { Contact } from './components/Contact'
 import { Education } from './components/Education'
 import { Experience } from './components/Experience'
@@ -11,6 +12,7 @@ import { identity } from './data/profile'
 export default function App() {
   return (
     <div id="top">
+      <Background3D />
       <a className="skip-link" href="#main">
         Skip to content
       </a>
