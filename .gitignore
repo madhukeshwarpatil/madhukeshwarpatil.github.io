@@ -1,6 +1,0 @@
-node_modules
-dist
-qa-shots
-*.local
-.DS_Store
-*.log
