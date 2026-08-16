@@ -1,63 +1,726 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#060a13" />
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Madhukeshwargouda Patil — Cloud & Platform Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════
+   TOKENS
+══════════════════════════════ */
+:root {
+  --page:     #E8E8E4;
+  --card:     #FFFFFF;
+  --sidebar:  #F7F7F5;
+  --ink:      #111318;
+  --ink2:     #374151;
+  --ink3:     #6B7280;
+  --ink4:     #9CA3AF;
+  --rule:     #E5E7EB;
+  --rule2:    #D1D5DB;
+  --blue:     #2563EB;
+  --blue-bg:  #EFF6FF;
+  --blue-br:  #BFDBFE;
+  --green:    #16A34A;
+  --green-bg: #F0FDF4;
+  --green-br: #BBF7D0;
+  --f: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --m: 'Fira Code', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  background: var(--page);
+  font-family: var(--f);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  padding: 2.5rem 1.5rem 6rem;
+}
+a { color: inherit; text-decoration: none; }
 
-    <title>Madhukeshwargouda Patil — Technical Lead · Cloud, Platform & SRE</title>
-    
-    <meta
-      name="description"
-      content="Technical Lead with 9+ years in cloud infrastructure, DevOps and SRE. Architected a global OTT platform on AWS to 9M users in 90 days. Based in Berlin, open to Cloud, Platform and SRE roles across Europe."
-    />
-    <meta name="author" content="Madhukeshwargouda Patil" />
-    <link rel="canonical" href="https://madhukeshwarpatil.github.io/" />
+/* ══════════════════════════════
+   SCREEN: CV CARD
+══════════════════════════════ */
+.screen-cv {
+  max-width: 1080px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 8px 32px rgba(0,0,0,.08);
+  overflow: hidden;
+}
 
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://madhukeshwarpatil.github.io/" />
-    <meta property="og:title" content="Madhukeshwargouda Patil — Technical Lead · Cloud, Platform & SRE" />
-    <meta
-      property="og:description"
-      content="0 → 9M users in 90 days. Technical Lead with 9+ years in cloud infrastructure, DevOps and SRE — open to roles across Europe."
-    />
-    <meta property="og:image" content="https://madhukeshwarpatil.github.io/og.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Madhukeshwargouda Patil — Technical Lead · Cloud, Platform & SRE" />
-    <meta
-      name="twitter:description"
-      content="0 → 9M users in 90 days. Technical Lead with 9+ years in cloud infrastructure, DevOps and SRE — open to roles across Europe."
-    />
-    <meta name="twitter:image" content="https://madhukeshwarpatil.github.io/og.png" />
+/* HEADER */
+.cv-header {
+  padding: 2.25rem 2.75rem 1.75rem;
+  border-bottom: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  column-gap: 2rem;
+  row-gap: 0.2rem;
+  align-items: start;
+}
+.cv-name {
+  grid-column: 1; grid-row: 1;
+  font-size: 2.1rem; font-weight: 800;
+  letter-spacing: -0.03em; line-height: 1.05;
+  color: var(--ink); white-space: nowrap;
+}
+.cv-title {
+  grid-column: 1; grid-row: 2;
+  font-size: 0.9rem; font-weight: 400;
+  color: var(--ink3); margin-top: 0.3rem; white-space: nowrap;
+}
+.cv-header-right {
+  grid-column: 2; grid-row: 1 / 3;
+  display: flex; flex-direction: column;
+  align-items: flex-end; gap: 8px; padding-top: 3px;
+}
+.cv-status {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--green-bg); border: 1px solid var(--green-br);
+  color: var(--green); font-family: var(--m);
+  font-size: 11px; font-weight: 500;
+  padding: 5px 13px; border-radius: 20px;
+  letter-spacing: 0.04em; white-space: nowrap;
+}
+.cv-status::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--green); animation: blink 2.5s ease-in-out infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+.cv-contact-mini { display: flex; gap: 1.25rem; justify-content: flex-end; }
+.cv-contact-mini a {
+  font-family: var(--m); font-size: 11px; color: var(--ink3); transition: color .15s;
+}
+.cv-contact-mini a:hover { color: var(--blue); }
 
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+/* BODY */
+.cv-body {
+  display: grid; grid-template-columns: 230px 1fr;
+  align-items: stretch; min-height: 600px;
+}
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap"
-      rel="stylesheet"
-    />
+/* SIDEBAR */
+.cv-sidebar {
+  background: var(--sidebar); border-right: 1px solid var(--rule);
+  padding: 2rem 1.5rem; height: 100%;
+}
+.sb-section { margin-bottom: 1.75rem; }
+.sb-section:last-child { margin-bottom: 0; }
+.sb-label {
+  font-family: var(--m); font-size: 9px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink4);
+  margin-bottom: 0.75rem; padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--rule2); display: block;
+}
+.sb-summary { font-size: 12.5px; font-weight: 300; color: var(--ink2); line-height: 1.7; }
+.sb-avail {
+  background: var(--green-bg); border: 1px solid var(--green-br);
+  border-radius: 7px; padding: 0.75rem 0.9rem;
+  font-size: 12px; color: #14532D; line-height: 1.6;
+}
+.sb-avail strong { font-weight: 600; display: block; margin-bottom: 2px; }
+.sb-skill-group { margin-bottom: 1rem; }
+.sb-skill-group:last-child { margin-bottom: 0; }
+.sb-skill-name { font-size: 12px; font-weight: 600; color: var(--ink2); margin-bottom: 0.4rem; }
+.sb-pills { display: flex; flex-wrap: wrap; gap: 5px; }
+.sb-pill {
+  font-size: 11px; color: var(--ink3);
+  background: var(--card); border: 1px solid var(--rule2);
+  padding: 2px 8px; border-radius: 4px;
+}
+.sb-edu { margin-bottom: 1rem; }
+.sb-edu:last-child { margin-bottom: 0; }
+.sb-edu-badge {
+  display: inline-block; font-family: var(--m); font-size: 9px;
+  font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em;
+  background: var(--blue-bg); color: var(--blue); border: 1px solid var(--blue-br);
+  padding: 1px 7px; border-radius: 3px; margin-bottom: 4px;
+}
+.sb-edu-degree { font-size: 12.5px; font-weight: 600; color: var(--ink); line-height: 1.35; margin-bottom: 2px; }
+.sb-edu-school { font-size: 11.5px; color: var(--ink3); margin-bottom: 2px; }
+.sb-edu-period { font-family: var(--m); font-size: 10px; color: var(--ink4); }
+.sb-lang { margin-bottom: 0.6rem; }
+.sb-lang:last-child { margin-bottom: 0; }
+.sb-lang-name { font-size: 12.5px; font-weight: 600; color: var(--ink); }
+.sb-lang-level { font-family: var(--m); font-size: 10px; color: var(--ink4); }
 
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Madhukeshwargouda Patil",
-        "jobTitle": "Technical Lead — Cloud & Platform Engineering",
-        "email": "mailto:madhukeshwarpatil@gmail.com",
-        "telephone": "+49 178 459 2846",
-        "url": "https://madhukeshwarpatil.github.io/",
-        "sameAs": ["https://linkedin.com/in/madhukeshwargouda-patil-691a123b3"],
-        "address": { "@type": "PostalAddress", "addressLocality": "Berlin", "addressCountry": "DE" },
-        "knowsAbout": ["AWS", "Terraform", "DevOps", "SRE", "Platform Engineering", "Kubernetes", "Observability"]
-      }
-    </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+/* MAIN */
+.cv-main { padding: 2rem 2.5rem; }
+.cv-section { margin-bottom: 2.25rem; }
+.cv-section:last-child { margin-bottom: 0; }
+.cv-sec-title {
+  font-family: var(--m); font-size: 9.5px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink4);
+  margin-bottom: 1rem; padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--rule);
+  display: flex; align-items: center; gap: 8px;
+}
+.cv-sec-title::before {
+  content: ''; display: inline-block;
+  width: 12px; height: 2px; background: var(--blue);
+  border-radius: 2px; flex-shrink: 0;
+}
+.cv-summary { font-size: 13.5px; font-weight: 300; color: var(--ink2); line-height: 1.8; }
+.exp {
+  padding: 1.4rem 0 1.4rem 1.1rem;
+  border-left: 2px solid var(--blue-br);
+  margin-bottom: 0.25rem; position: relative;
+}
+.exp::before {
+  content: ''; position: absolute; left: -5px; top: 1.6rem;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--blue); border: 2px solid var(--card);
+  box-shadow: 0 0 0 1px var(--blue-br);
+}
+.exp:last-child { margin-bottom: 0; }
+.exp-top {
+  display: flex; justify-content: space-between;
+  align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: 2px;
+}
+.exp-role { font-size: 14px; font-weight: 700; color: var(--ink); }
+.exp-date { font-family: var(--m); font-size: 11px; color: var(--ink4); white-space: nowrap; }
+.exp-company { font-size: 12.5px; font-weight: 500; color: var(--ink3); margin-bottom: 0.75rem; }
+.exp-company span { color: var(--blue); }
+.exp-metrics { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 0.75rem; }
+.metric {
+  background: var(--blue-bg); border: 1px solid var(--blue-br);
+  border-radius: 6px; padding: 5px 11px;
+}
+.metric-val { font-family: var(--m); font-size: 12px; font-weight: 500; color: var(--blue); line-height: 1.1; }
+.metric-lbl { font-size: 10px; color: var(--ink4); margin-top: 1px; }
+.exp-bullets { list-style: none; padding: 0; margin-bottom: 0.75rem; }
+.exp-bullets li {
+  font-size: 12.5px; font-weight: 300; color: var(--ink2);
+  line-height: 1.7; padding-left: 1rem; position: relative; margin-bottom: 3px;
+}
+.exp-bullets li::before {
+  content: '·'; position: absolute; left: 0;
+  color: var(--blue); font-size: 18px; line-height: 1.2;
+}
+.exp-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.etag {
+  font-family: var(--m); font-size: 10.5px; color: var(--ink3);
+  background: var(--sidebar); border: 1px solid var(--rule2);
+  padding: 2px 8px; border-radius: 4px;
+}
+
+/* PRINT BUTTON */
+.print-btn {
+  position: fixed; bottom: 2rem; right: 2rem;
+  background: var(--ink); color: #fff;
+  font-family: var(--f); font-size: 13px; font-weight: 500;
+  padding: 10px 20px; border-radius: 10px;
+  cursor: pointer; border: none;
+  box-shadow: 0 4px 16px rgba(0,0,0,.2);
+  display: flex; align-items: center; gap: 8px;
+  transition: background .15s, transform .12s; z-index: 50;
+}
+.print-btn:hover { background: var(--blue); transform: translateY(-2px); }
+
+/* ══════════════════════════════
+   RESPONSIVE
+══════════════════════════════ */
+@media (max-width: 720px) {
+  body { padding: 0 0 4rem; }
+  .screen-cv { border-radius: 0; box-shadow: none; }
+  .cv-header {
+    padding: 1.75rem 1.5rem 1.5rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    row-gap: 0.4rem;
+  }
+  .cv-name { font-size: 1.6rem; white-space: normal; }
+  .cv-title { white-space: normal; }
+  .cv-header-right { grid-column: 1; grid-row: 3; align-items: flex-start; }
+  .cv-contact-mini { justify-content: flex-start; flex-wrap: wrap; gap: 0.6rem; }
+  .cv-body { grid-template-columns: 1fr; }
+  .cv-sidebar { border-right: none; border-bottom: 1px solid var(--rule); }
+  .cv-main { padding: 1.75rem 1.5rem; }
+  /*.print-btn { display: none; }*/
+}
+
+/* ══════════════════════════════
+   PRINT — dedicated print layer
+══════════════════════════════ */
+.print-only { display: none; }
+
+@media print {
+  @page { size: A4; margin: 10mm 12mm; }
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+
+  body { background: white !important; padding: 0 !important; margin: 0 !important; }
+
+  /* hide screen version */
+  .screen-cv, .print-btn { display: none !important; }
+
+  /* show print version */
+  .print-only { display: block !important; }
+
+  /* ── PRINT CV ── */
+  .p-cv {
+    width: 100%;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #111318;
+    font-size: 8pt;
+    line-height: 1.5;
+    hyphens: none;
+    -webkit-hyphens: none;
+    word-break: keep-all;
+  }
+
+  /* header */
+  .p-header {
+    display: table;
+    width: 100%;
+    padding-bottom: 4mm;
+    margin-bottom: 4mm;
+    border-bottom: 1pt solid #E5E7EB;
+  }
+  .p-header-left {
+    display: table-cell;
+    vertical-align: middle;
+    width: 65%;
+  }
+  .p-header-right {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: right;
+    width: 35%;
+  }
+  .p-name {
+    font-size: 20pt; font-weight: 800;
+    letter-spacing: -0.03em; line-height: 1;
+    color: #111318; margin-bottom: 3pt;
+    white-space: nowrap;
+  }
+  .p-title {
+    font-size: 8.5pt; color: #6B7280; font-weight: 400;
+    white-space: nowrap;
+  }
+  .p-status {
+    display: inline-block;
+    background: #F0FDF4; color: #16A34A;
+    border: 0.75pt solid #BBF7D0;
+    font-size: 7pt; padding: 2.5pt 9pt;
+    border-radius: 20pt; margin-bottom: 3pt;
+    font-family: 'Fira Code', monospace;
+    letter-spacing: 0.04em;
+  }
+  .p-contacts { font-family: 'Fira Code', monospace; font-size: 7pt; color: #6B7280; }
+  .p-contacts div { margin-top: 1.5pt; }
+
+  /* body grid */
+  .p-body {
+    display: grid;
+    grid-template-columns: 52mm 1fr;
+    gap: 0;
+    align-items: start;
+  }
+
+  /* sidebar */
+  .p-sidebar {
+    padding-right: 5mm;
+    border-right: 0.75pt solid #E5E7EB;
+    padding-top: 1mm;
+  }
+  .p-sb-section { margin-bottom: 4mm; hyphens: none; -webkit-hyphens: none; word-break: keep-all; }
+  .p-sb-label {
+    font-size: 6pt; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.12em;
+    color: #9CA3AF; margin-bottom: 2mm;
+    padding-bottom: 1.5pt; border-bottom: 0.5pt solid #D1D5DB;
+    display: block;
+  }
+  .p-sb-text { font-size: 7pt; color: #374151; line-height: 1.5; hyphens: none; -webkit-hyphens: none; word-break: keep-all; overflow-wrap: break-word; }
+  .p-avail {
+    background: #F0FDF4; border: 0.5pt solid #BBF7D0;
+    border-radius: 3pt; padding: 3pt 5pt;
+    font-size: 7pt; color: #14532D; line-height: 1.45;
+  }
+  .p-avail-title { font-weight: 700; margin-bottom: 1pt; display: block; }
+  .p-skill-cat { font-size: 7pt; font-weight: 700; color: #374151; margin: 3pt 0 2pt; }
+  .p-skill-cat:first-of-type { margin-top: 0; }
+  .p-pills { display: flex; flex-wrap: wrap; gap: 2pt; }
+  .p-pill {
+    font-size: 6pt; color: #6B7280;
+    background: white; border: 0.5pt solid #D1D5DB;
+    padding: 1pt 4pt; border-radius: 2pt; line-height: 1.4;
+  }
+  .p-edu { margin-bottom: 3.5pt; }
+  .p-edu-badge {
+    font-size: 5.5pt; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    background: #EFF6FF; color: #2563EB;
+    border: 0.5pt solid #BFDBFE;
+    padding: 0.5pt 4pt; border-radius: 1.5pt;
+    display: inline-block; margin-bottom: 1.5pt;
+  }
+  .p-edu-degree { font-size: 7pt; font-weight: 700; color: #111318; line-height: 1.3; }
+  .p-edu-school { font-size: 6.5pt; color: #6B7280; line-height: 1.3; }
+  .p-edu-period { font-size: 6pt; color: #9CA3AF; font-family: 'Fira Code', monospace; }
+  .p-lang { margin-bottom: 3pt; }
+  .p-lang-name { font-size: 7.5pt; font-weight: 700; color: #111318; }
+  .p-lang-level { font-size: 6pt; color: #9CA3AF; font-family: 'Fira Code', monospace; }
+
+  /* main */
+  .p-main { padding-left: 5mm; padding-top: 1mm; }
+  .p-section { margin-bottom: 4mm; }
+  .p-sec-title {
+    font-size: 6.5pt; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.12em;
+    color: #9CA3AF; margin-bottom: 3mm;
+    padding-bottom: 1.5pt; border-bottom: 0.75pt solid #E5E7EB;
+    display: flex; align-items: center; gap: 5pt;
+  }
+  .p-sec-title::before {
+    content: ''; display: inline-block;
+    width: 10pt; height: 1.5pt;
+    background: #2563EB; border-radius: 1pt; flex-shrink: 0;
+  }
+  .p-summary { font-size: 7.5pt; color: #374151; line-height: 1.6; }
+
+  /* experience */
+  .p-exp {
+    padding: 0 0 3mm 4mm;
+    border-left: 1.5pt solid #BFDBFE;
+    margin-bottom: 1mm;
+    position: relative;
+    page-break-inside: avoid;
+  }
+  .p-exp::before {
+    content: ''; position: absolute;
+    left: -4pt; top: 2pt;
+    width: 6pt; height: 6pt; border-radius: 50%;
+    background: #2563EB; border: 1.5pt solid white;
+    box-shadow: 0 0 0 0.75pt #BFDBFE;
+  }
+  .p-exp:last-child { padding-bottom: 0; }
+  .p-exp-header {
+    display: flex; justify-content: space-between;
+    align-items: baseline; gap: 4mm; margin-bottom: 1pt;
+  }
+  .p-exp-role { font-size: 8.5pt; font-weight: 700; color: #111318; }
+  .p-exp-date { font-size: 7pt; color: #9CA3AF; font-family: 'Fira Code', monospace; white-space: nowrap; flex-shrink: 0; }
+  .p-exp-co { font-size: 7pt; color: #6B7280; margin-bottom: 2mm; }
+  .p-exp-co span { color: #2563EB; }
+
+  .p-metrics { display: flex; gap: 3pt; margin-bottom: 2mm; flex-wrap: nowrap; }
+  .p-metric {
+    background: #EFF6FF; border: 0.5pt solid #BFDBFE;
+    border-radius: 2.5pt; padding: 2pt 6pt; text-align: center;
+  }
+  .p-metric-val { font-size: 8pt; font-weight: 600; color: #2563EB; display: block; line-height: 1.1; font-family: 'Fira Code', monospace; }
+  .p-metric-lbl { font-size: 5.5pt; color: #9CA3AF; display: block; margin-top: 1pt; }
+
+  /* bullets using table to fix alignment */
+  .p-bullets { margin-bottom: 2mm; border-collapse: collapse; width: 100%; }
+  .p-bullets td.bull { width: 8pt; color: #2563EB; font-size: 12pt; vertical-align: top; line-height: 1.1; padding-top: 0; }
+  .p-bullets td.txt { font-size: 7pt; color: #374151; line-height: 1.5; vertical-align: top; }
+
+  .p-tags { display: flex; flex-wrap: wrap; gap: 2.5pt; }
+  .p-tag {
+    font-size: 6pt; color: #6B7280;
+    background: #F7F7F5; border: 0.5pt solid #D1D5DB;
+    padding: 1pt 4.5pt; border-radius: 2pt;
+    font-family: 'Fira Code', monospace;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @keyframes blink { 0%,100%{opacity:1} }
+  .print-btn:hover { transform: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ SCREEN VERSION ══ -->
+<div class="screen-cv">
+  <header class="cv-header">
+    <h1 class="cv-name">Madhukeshwargouda G Patil</h1>
+    <p class="cv-title">Technical Lead &nbsp;·&nbsp; Cloud &amp; Platform Engineering &nbsp;·&nbsp; DevOps &nbsp;·&nbsp; SRE</p>
+    <div class="cv-header-right">
+      <span class="cv-status">Open to work · Berlin, DE</span>
+      <div class="cv-contact-mini">
+        <a href="mailto:madhukeshwarpatil@gmail.com">madhukeshwarpatil@gmail.com</a>
+        <a href="tel:+491784592846">+49 178 459 2846</a>
+        <a href="https://linkedin.com/in/madhukeshwargouda-patil-691a123b3" target="_blank">linkedin ↗</a>
+      </div>
+    </div>
+  </header>
+  <div class="cv-body">
+    <aside class="cv-sidebar">
+      <div class="sb-section">
+        <div class="sb-label">Profile</div>
+        <p class="sb-summary">Technical Lead with 9+ years in cloud infrastructure, DevOps, and SRE. Based in Berlin. Open to Cloud, Platform, and SRE roles across Europe.</p>
+      </div>
+      <div class="sb-section">
+        <div class="sb-label">Availability</div>
+        <div class="sb-avail">
+          <strong>Available now</strong>
+          Cloud, Platform, DevOps &amp; SRE roles across Europe. Part-time now · eligible for EU Blue Card Apr 2027.
+        </div>
+      </div>
+      <div class="sb-section">
+        <div class="sb-label">Skills</div>
+        <div class="sb-skill-group">
+          <div class="sb-skill-name">Cloud &amp; IaC</div>
+          <div class="sb-pills"><span class="sb-pill">AWS</span><span class="sb-pill">EC2</span><span class="sb-pill">ECS</span><span class="sb-pill">Lambda</span><span class="sb-pill">S3</span><span class="sb-pill">RDS</span><span class="sb-pill">CloudFront</span><span class="sb-pill">IAM</span><span class="sb-pill">VPC</span><span class="sb-pill">Route 53</span><span class="sb-pill">API GW</span><span class="sb-pill">Terraform</span><span class="sb-pill">Ansible</span><span class="sb-pill">Chef</span></div>
+        </div>
+        <div class="sb-skill-group">
+          <div class="sb-skill-name">CI/CD &amp; DevOps</div>
+          <div class="sb-pills"><span class="sb-pill">GitHub Actions</span><span class="sb-pill">Jenkins</span><span class="sb-pill">Docker</span><span class="sb-pill">JFrog</span><span class="sb-pill">SonarQube</span></div>
+        </div>
+        <div class="sb-skill-group">
+          <div class="sb-skill-name">Observability &amp; SRE</div>
+          <div class="sb-pills"><span class="sb-pill">New Relic</span><span class="sb-pill">Grafana</span><span class="sb-pill">VictoriaMetrics</span><span class="sb-pill">Datadog</span><span class="sb-pill">CloudWatch</span><span class="sb-pill">PagerDuty</span></div>
+        </div>
+        <div class="sb-skill-group">
+          <div class="sb-skill-name">Languages &amp; Data</div>
+          <div class="sb-pills"><span class="sb-pill">Python</span><span class="sb-pill">Bash</span><span class="sb-pill">JavaScript</span><span class="sb-pill">C#</span><span class="sb-pill">Kotlin</span><span class="sb-pill">Scala</span><span class="sb-pill">SQL Server</span><span class="sb-pill">TiDB</span><span class="sb-pill">Kafka</span></div>
+        </div>
+      </div>
+      <div class="sb-section">
+        <div class="sb-label">Education</div>
+        <div class="sb-edu">
+          <div class="sb-edu-badge">In progress</div>
+          <div class="sb-edu-degree">MSc Data Science, AI &amp; Digital Business</div>
+          <div class="sb-edu-school">GISMA University of Applied Sciences · Berlin</div>
+          <div class="sb-edu-period">Apr 2026 – Apr 2027</div>
+        </div>
+        <div class="sb-edu">
+          <div class="sb-edu-degree">B.E. Electronics &amp; Communication Engineering</div>
+          <div class="sb-edu-school">Smt. Kamala &amp; Sri Venkappa M. Agadi College · Hubli, India</div>
+          <div class="sb-edu-period">Sep 2012 – Jun 2016</div>
+        </div>
+      </div>
+      <div class="sb-section">
+        <div class="sb-label">Languages</div>
+        <div class="sb-lang"><div class="sb-lang-name">English</div><div class="sb-lang-level">Full professional</div></div>
+        <div class="sb-lang"><div class="sb-lang-name">Kannada</div><div class="sb-lang-level">Native</div></div>
+        <div class="sb-lang"><div class="sb-lang-name">Hindi</div><div class="sb-lang-level">Professional working</div></div>
+        <div class="sb-lang"><div class="sb-lang-name">German</div><div class="sb-lang-level">Beginner · learning</div></div>
+      </div>
+    </aside>
+    <main class="cv-main">
+      <div class="cv-section">
+        <h2 class="cv-sec-title">Summary</h2>
+        <p class="cv-summary">Architected a global OTT streaming platform on AWS from zero to 9M users in 90 days. Spent four years leading platform reliability at PayPay — Japan's largest fintech — progressing from Software Engineer to Technical Lead while managing a 5-engineer team, owning the full observability stack, and driving incident response at scale. Before that, five years building SaaS products end-to-end. Currently pursuing an MSc in Data Science, AI &amp; Digital Business at GISMA Berlin, and open to Cloud Engineering, Platform Engineering, DevOps, and SRE roles across Europe.</p>
+      </div>
+      <div class="cv-section">
+        <h2 class="cv-sec-title">Experience</h2>
+        <div class="exp">
+          <div class="exp-top"><div class="exp-role">Technical Lead — Cloud &amp; Platform Engineering</div><div class="exp-date">Oct 2025 – Apr 2026</div></div>
+          <div class="exp-company">Robosoft Technologies &nbsp;·&nbsp; <span>Client: Come and See Foundation (The Chosen OTT)</span></div>
+          <div class="exp-metrics">
+            <div class="metric"><div class="metric-val">9M+</div><div class="metric-lbl">Users</div></div>
+            <div class="metric"><div class="metric-val">20M+</div><div class="metric-lbl">Sessions</div></div>
+            <div class="metric"><div class="metric-val">8K+</div><div class="metric-lbl">Req / sec</div></div>
+            <div class="metric"><div class="metric-val">90 days</div><div class="metric-lbl">Zero → production</div></div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Led end-to-end cloud architecture and DevOps delivery of a global OTT platform on AWS in 90 days</li>
+            <li>Designed environment strategy and authored reusable Terraform modules across dev, staging, and production</li>
+            <li>Built GitHub Actions pipelines automating build, test, and deployment for all environments</li>
+            <li>Scaled platform to 9M+ users and 8K+ req/s across web, mobile, and TV devices globally</li>
+          </ul>
+          <div class="exp-tags"><span class="etag">AWS</span><span class="etag">Terraform</span><span class="etag">GitHub Actions</span><span class="etag">EC2</span><span class="etag">ECS</span><span class="etag">S3</span><span class="etag">CloudFront</span><span class="etag">Lambda</span><span class="etag">Docker</span><span class="etag">IaC</span></div>
+        </div>
+        <div class="exp">
+          <div class="exp-top"><div class="exp-role">SWE → Senior SWE → Technical Lead, Platform Reliability</div><div class="exp-date">Aug 2021 – Sep 2025</div></div>
+          <div class="exp-company">Robosoft Technologies &nbsp;·&nbsp; <span>Client: PayPay Corporation · 60M+ users · Japan</span></div>
+          <div class="exp-metrics">
+            <div class="metric"><div class="metric-val">60M+</div><div class="metric-lbl">Platform users</div></div>
+            <div class="metric"><div class="metric-val">2.5M</div><div class="metric-lbl">API req / day</div></div>
+            <div class="metric"><div class="metric-val">20K</div><div class="metric-lbl">Notifications / day</div></div>
+            <div class="metric"><div class="metric-val">3 levels</div><div class="metric-lbl">Promoted in 4 yrs</div></div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Managed a 5-engineer reliability team across production operations, monitoring, and on-call incident management</li>
+            <li>Owned observability stack (New Relic, Grafana, VictoriaMetrics) — improved alerting quality and reduced MTTR</li>
+            <li>Built structured incident response processes: runbooks, escalation trees, and post-incident reviews</li>
+            <li>Designed and shipped a Kafka-based notification system delivering ~20K messages/day to agents, customers, and suppliers</li>
+            <li>Partnered with client engineering leadership to align reliability priorities with product delivery goals</li>
+          </ul>
+          <div class="exp-tags"><span class="etag">SRE</span><span class="etag">New Relic</span><span class="etag">Grafana</span><span class="etag">VictoriaMetrics</span><span class="etag">PagerDuty</span><span class="etag">Kafka</span><span class="etag">TiDB</span><span class="etag">Kotlin</span><span class="etag">Scala</span></div>
+        </div>
+        <div class="exp">
+          <div class="exp-top"><div class="exp-role">Software Engineer — Full-Stack Development</div><div class="exp-date">Jul 2016 – Aug 2021</div></div>
+          <div class="exp-company">Indust Logistik Technologies Pvt. Ltd.</div>
+          <ul class="exp-bullets">
+            <li>Built and maintained SaaS products — helpdesk and property management solutions — end-to-end in .NET MVC, C#, SQL Server, and JavaScript</li>
+            <li>Owned full delivery lifecycle across multiple clients: requirements, development, testing, and deployment</li>
+          </ul>
+          <div class="exp-tags"><span class="etag">.NET MVC</span><span class="etag">C#</span><span class="etag">SQL Server</span><span class="etag">JavaScript</span><span class="etag">SaaS</span></div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- ══ PRINT-ONLY VERSION ══ -->
+<div class="print-only">
+  <div class="p-cv">
+
+    <!-- Header -->
+    <div class="p-header">
+      <div class="p-header-left">
+        <div class="p-name">Madhukeshwargouda Patil</div>
+        <div class="p-title">Technical Lead &nbsp;&middot;&nbsp; Cloud &amp; Platform Engineering &nbsp;&middot;&nbsp; DevOps &nbsp;&middot;&nbsp; SRE</div>
+      </div>
+      <div class="p-header-right">
+        <div class="p-status">&#9679;&nbsp; Open to work &middot; Berlin, DE</div>
+        <div class="p-contacts">
+          <div>madhukeshwarpatil@gmail.com</div>
+          <div>+49 178 459 2846</div>
+          <div>linkedin.com/in/madhukeshwargouda-patil-691a123b3</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <div class="p-body">
+
+      <!-- Sidebar -->
+      <div class="p-sidebar">
+
+        <div class="p-sb-section">
+          <span class="p-sb-label">Profile</span>
+          <p class="p-sb-text">Technical Lead with 9+ years in cloud infrastructure, DevOps, and SRE. Based in Berlin. Open to Cloud, Platform, and SRE roles across Europe.</p>
+        </div>
+
+        <div class="p-sb-section">
+          <span class="p-sb-label">Availability</span>
+          <div class="p-avail">
+            <span class="p-avail-title">Available now</span>
+            Cloud, Platform, DevOps &amp; SRE roles across Europe. Part-time now &middot; EU Blue Card eligible Apr 2027.
+          </div>
+        </div>
+
+        <div class="p-sb-section">
+          <span class="p-sb-label">Skills</span>
+          <div class="p-skill-cat">Cloud &amp; IaC</div>
+          <div class="p-pills"><span class="p-pill">AWS</span><span class="p-pill">EC2</span><span class="p-pill">ECS</span><span class="p-pill">Lambda</span><span class="p-pill">S3</span><span class="p-pill">RDS</span><span class="p-pill">CloudFront</span><span class="p-pill">IAM</span><span class="p-pill">VPC</span><span class="p-pill">Route 53</span><span class="p-pill">API GW</span><span class="p-pill">Terraform</span><span class="p-pill">Ansible</span><span class="p-pill">Chef</span></div>
+          <div class="p-skill-cat">CI/CD &amp; DevOps</div>
+          <div class="p-pills"><span class="p-pill">GitHub Actions</span><span class="p-pill">Jenkins</span><span class="p-pill">Docker</span><span class="p-pill">JFrog</span><span class="p-pill">SonarQube</span></div>
+          <div class="p-skill-cat">Observability &amp; SRE</div>
+          <div class="p-pills"><span class="p-pill">New Relic</span><span class="p-pill">Grafana</span><span class="p-pill">VictoriaMetrics</span><span class="p-pill">Datadog</span><span class="p-pill">CloudWatch</span><span class="p-pill">PagerDuty</span></div>
+          <div class="p-skill-cat">Languages &amp; Data</div>
+          <div class="p-pills"><span class="p-pill">Python</span><span class="p-pill">Bash</span><span class="p-pill">JavaScript</span><span class="p-pill">C#</span><span class="p-pill">Kotlin</span><span class="p-pill">Scala</span><span class="p-pill">SQL Server</span><span class="p-pill">TiDB</span><span class="p-pill">Kafka</span></div>
+        </div>
+
+        <div class="p-sb-section">
+          <span class="p-sb-label">Education</span>
+          <div class="p-edu">
+            <div class="p-edu-badge">In progress</div>
+            <div class="p-edu-degree">MSc Data Science, AI &amp; Digital Business</div>
+            <div class="p-edu-school">GISMA University of Applied Sciences &middot; Berlin</div>
+            <div class="p-edu-period">Apr 2026 &ndash; Apr 2027</div>
+          </div>
+          <div class="p-edu">
+            <div class="p-edu-degree">B.E. Electronics &amp; Communication Engineering</div>
+            <div class="p-edu-school">Smt. Kamala &amp; Sri Venkappa M. Agadi College &middot; Hubli, India</div>
+            <div class="p-edu-period">Sep 2012 &ndash; Jun 2016</div>
+          </div>
+        </div>
+
+        <div class="p-sb-section">
+          <span class="p-sb-label">Languages</span>
+          <div class="p-lang"><div class="p-lang-name">English</div><div class="p-lang-level">Full professional</div></div>
+          <div class="p-lang"><div class="p-lang-name">Kannada</div><div class="p-lang-level">Native</div></div>
+          <div class="p-lang"><div class="p-lang-name">Hindi</div><div class="p-lang-level">Professional working</div></div>
+          <div class="p-lang"><div class="p-lang-name">German</div><div class="p-lang-level">Beginner &middot; learning</div></div>
+        </div>
+
+      </div><!-- /sidebar -->
+
+      <!-- Main -->
+      <div class="p-main">
+
+        <div class="p-section">
+          <div class="p-sec-title">Summary</div>
+          <p class="p-summary">Architected a global OTT streaming platform on AWS from zero to 9M users in 90 days. Spent four years leading platform reliability at PayPay &mdash; Japan&rsquo;s largest fintech &mdash; progressing from Software Engineer to Technical Lead while managing a 5-engineer team, owning the full observability stack, and driving incident response at scale. Before that, five years building SaaS products end-to-end. Currently pursuing an MSc in Data Science, AI &amp; Digital Business at GISMA Berlin, and open to Cloud Engineering, Platform Engineering, DevOps, and SRE roles across Europe.</p>
+        </div>
+
+        <div class="p-section">
+          <div class="p-sec-title">Experience</div>
+
+          <!-- Job 1 -->
+          <div class="p-exp">
+            <div class="p-exp-header">
+              <div class="p-exp-role">Technical Lead &mdash; Cloud &amp; Platform Engineering</div>
+              <div class="p-exp-date">Oct 2025 &ndash; Apr 2026</div>
+            </div>
+            <div class="p-exp-co">Robosoft Technologies &middot; <span>Client: Come and See Foundation (The Chosen OTT)</span></div>
+            <div class="p-metrics">
+              <div class="p-metric"><span class="p-metric-val">9M+</span><span class="p-metric-lbl">Users</span></div>
+              <div class="p-metric"><span class="p-metric-val">20M+</span><span class="p-metric-lbl">Sessions</span></div>
+              <div class="p-metric"><span class="p-metric-val">8K+</span><span class="p-metric-lbl">Req / sec</span></div>
+              <div class="p-metric"><span class="p-metric-val">90 days</span><span class="p-metric-lbl">Zero &rarr; prod</span></div>
+            </div>
+            <table class="p-bullets">
+              <tr><td class="bull">&middot;</td><td class="txt">Led end-to-end cloud architecture and DevOps delivery of a global OTT platform on AWS in 90 days</td></tr>
+              <tr><td class="bull">&middot;</td><td class="txt">Designed environment strategy and authored reusable Terraform modules across dev, staging, and production</td></tr>
+              <tr><td class="bull">&middot;</td><td class="txt">Built GitHub Actions pipelines automating build, test, and deployment for all environments</td></tr>
+              <tr><td class="bull">&middot;</td><td class="txt">Scaled platform to 9M+ users and 8K+ req/s across web, mobile, and TV devices globally</td></tr>
+            </table>
+            <div class="p-tags"><span class="p-tag">AWS</span><span class="p-tag">Terraform</span><span class="p-tag">GitHub Actions</span><span class="p-tag">EC2</span><span class="p-tag">ECS</span><span class="p-tag">S3</span><span class="p-tag">CloudFront</span><span class="p-tag">Lambda</span><span class="p-tag">Docker</span><span class="p-tag">IaC</span></div>
+          </div>
+
+          <!-- Job 2 -->
+          <div class="p-exp">
+            <div class="p-exp-header">
+              <div class="p-exp-role">SWE &rarr; Senior SWE &rarr; Technical Lead, Platform Reliability</div>
+              <div class="p-exp-date">Aug 2021 &ndash; Sep 2025</div>
+            </div>
+            <div class="p-exp-co">Robosoft Technologies &middot; <span>Client: PayPay Corporation &middot; 60M+ users &middot; Japan</span></div>
+            <div class="p-metrics">
+              <div class="p-metric"><span class="p-metric-val">60M+</span><span class="p-metric-lbl">Platform users</span></div>
+              <div class="p-metric"><span class="p-metric-val">2.5M</span><span class="p-metric-lbl">API req / day</span></div>
+              <div class="p-metric"><span class="p-metric-val">20K</span><span class="p-metric-lbl">Notifications / day</span></div>
+              <div class="p-metric"><span class="p-metric-val">3 levels</span><span class="p-metric-lbl">Promoted in 4 yrs</span></div>
+            </div>
+            <table class="p-bullets">
+              <tr><td class="bull">&middot;</td><td class="txt">Managed a 5-engineer reliability team across production operations, monitoring, and on-call incident management</td></tr>
+              <tr><td class="bull">&middot;</td><td class="txt">Owned observability stack (New Relic, Grafana, VictoriaMetrics) &mdash; improved alerting quality and reduced MTTR</td></tr>
+              <tr><td class="bull">&middot;</td><td class="txt">Built structured incident response processes: runbooks, escalation trees, and post-incident reviews</td></tr>
+              <tr><td class="bull">&middot;</td><td class="txt">Designed and shipped a Kafka-based notification system delivering ~20K messages/day to agents, customers, and suppliers</td></tr>
+              <tr><td class="bull">&middot;</td><td class="txt">Partnered with client engineering leadership to align reliability priorities with product delivery goals</td></tr>
+            </table>
+            <div class="p-tags"><span class="p-tag">SRE</span><span class="p-tag">New Relic</span><span class="p-tag">Grafana</span><span class="p-tag">VictoriaMetrics</span><span class="p-tag">PagerDuty</span><span class="p-tag">Kafka</span><span class="p-tag">TiDB</span><span class="p-tag">Kotlin</span><span class="p-tag">Scala</span></div>
+          </div>
+
+          <!-- Job 3 -->
+          <div class="p-exp">
+            <div class="p-exp-header">
+              <div class="p-exp-role">Software Engineer &mdash; Full-Stack Development</div>
+              <div class="p-exp-date">Jul 2016 &ndash; Aug 2021</div>
+            </div>
+            <div class="p-exp-co">Indust Logistik Technologies Pvt. Ltd.</div>
+            <table class="p-bullets">
+              <tr><td class="bull">&middot;</td><td class="txt">Built and maintained SaaS products &mdash; helpdesk and property management solutions &mdash; end-to-end in .NET MVC, C#, SQL Server, and JavaScript</td></tr>
+              <tr><td class="bull">&middot;</td><td class="txt">Owned full delivery lifecycle across multiple clients: requirements, development, testing, and deployment</td></tr>
+            </table>
+            <div class="p-tags"><span class="p-tag">.NET MVC</span><span class="p-tag">C#</span><span class="p-tag">SQL Server</span><span class="p-tag">JavaScript</span><span class="p-tag">SaaS</span></div>
+          </div>
+
+        </div><!-- /experience section -->
+      </div><!-- /main -->
+    </div><!-- /body -->
+  </div><!-- /p-cv -->
+</div><!-- /print-only -->
+
+<button class="print-btn" onclick="window.print()">
+  <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+  Save RESUME
+</button>
+
+</body>
 </html>
